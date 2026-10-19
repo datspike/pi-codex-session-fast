@@ -1,0 +1,9 @@
+node_modules/
+.task_files/
+.runtime/
+.pi/
+AGENTS.local.md
+*.jsonl
+.env*
+auth.json
+credentials/
