@@ -1,7 +1,9 @@
 {
   "name": "@datspike/pi-codex-session-fast",
   "version": "0.1.0",
-  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "description": "Explicit, volatile Fast for one native Codex session",
   "files": [
