@@ -6,6 +6,10 @@
   },
   "type": "module",
   "description": "Explicit, volatile Fast for one native Codex session",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/datspike/pi-codex-session-fast.git"
+  },
   "files": [
     "extensions/session-fast.ts",
     "README.md",

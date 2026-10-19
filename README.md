@@ -4,7 +4,7 @@ Explicit Fast mode for one active native `openai-codex` session in Pi 1.3.0+. Th
 
 ## Installation
 
-Install the local package with `pi install /absolute/path/to/pi-codex-session-fast`, then start a new Pi session or run `/reload`.
+Install the package with `pi install npm:@datspike/pi-codex-session-fast`, then start a new Pi session or run `/reload`.
 
 Choose any `openai-codex` model through Pi's normal model picker. The extension does not change the default model, OAuth, CLIProxyAPI, transport, or reasoning. Do not load another extension that owns `/fast` or `service_tier` at the same time.
 
@@ -42,6 +42,17 @@ npm pack --dry-run
 TypeScript checks and lifecycle tests do not replace live acceptance. Run real model checks separately with an explicit budget and receipts. The architecture decision is documented in `docs/adr/0001-volatile-session-priority.md`.
 
 Private plans live in the ignored `.task_files/` directory, and local runs live in `.runtime/`. Neither is included in Git or the npm package.
+
+## Publishing
+
+The package is published through `.github/workflows/publish.yml` with npm Trusted Publishing and GitHub Actions OIDC. The first version must be published locally once so npm can create the package:
+
+```sh
+npm login --auth-type=web
+npm publish --access public --provenance=false
+```
+
+After the package exists, configure **Settings → Publishing access → Trusted publishing** on npm for repository owner `datspike`, repository `pi-codex-session-fast`, workflow `publish.yml`, with no environment. Later releases bump the version, push `main`, and run the `Publish npm package` workflow.
 
 ## Response receipts
 
